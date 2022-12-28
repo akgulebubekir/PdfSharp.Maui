@@ -1,0 +1,384 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pdf="clr-namespace:PdfSharp.Maui;assembly=PdfSharp.Maui"
+             xmlns:local="clr-namespace:PdfSharp.Maui.Sample"
+             x:Class="PdfSharp.Maui.Sample.MainPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="TitleStyle" TargetType="Label">
+                <!--<Setter Property="TextColor" Value="Black" />-->
+                <Setter Property="FontSize" Value="Header" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+
+            <Style x:Key="SubtitleStyle" TargetType="Label">
+                <!--<Setter Property="TextColor" Value="Black" />-->
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="FontSize" Value="Medium" />
+            </Style>
+
+            <Style TargetType="VerticalStackLayout">
+                <Setter Property="Spacing" Value="10" />
+                <Setter Property="HorizontalOptions" Value="Fill" />
+            </Style>
+            <Style TargetType="HorizontalStackLayout">
+                <Setter Property="HorizontalOptions" Value="Fill" />
+                <Setter Property="Spacing" Value="5" />
+            </Style>
+            <Style TargetType="Grid">
+                <Setter Property="ColumnSpacing" Value="30" />
+                <Setter Property="RowSpacing" Value="10" />
+            </Style>
+            <local:CustomListViewRendererDelegate x:Key="ListViewRendererDelegate" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView Margin="10">
+        <VerticalStackLayout>
+            <Label Text="Editors" Style="{StaticResource TitleStyle}" />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="150" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="150" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="150" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <!--Checkbox-->
+                <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource SubtitleStyle}" Text="Checkbox" />
+                <VerticalStackLayout Grid.Row="1" Grid.Column="0">
+                    <HorizontalStackLayout>
+                        <Label Text="Unchecked" />
+                        <CheckBox IsChecked="False" />
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout>
+                        <Label Text="Checked" />
+                        <CheckBox IsChecked="True" />
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout>
+                        <Label Text="Orange Color" />
+                        <CheckBox IsChecked="True" Color="Orange" />
+                    </HorizontalStackLayout>
+
+                </VerticalStackLayout>
+
+                <!--DatePicker-->
+                <Label Grid.Row="0" Grid.Column="1" Style="{StaticResource SubtitleStyle}" Text="Date Picker" />
+                <VerticalStackLayout Grid.Row="1" Grid.Column="1">
+                    <DatePicker x:Name="_datePicker" HorizontalOptions="Center" VerticalOptions="Center" />
+
+                    <DatePicker x:Name="_datePicker2" TextColor="White"
+                                HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="Gray" />
+                </VerticalStackLayout>
+
+                <!--Editor-->
+                <Label Grid.Row="0" Grid.Column="2" Style="{StaticResource SubtitleStyle}" Text="Editor" />
+                <VerticalStackLayout Grid.Row="1" Grid.Column="2">
+                    <Editor Text="Editor with text" BackgroundColor="Lime" />
+                    <Editor Placeholder="Editor with placeholder" />
+                </VerticalStackLayout>
+
+                <!--Search Bar-->
+                <Label Grid.Row="0" Grid.Column="3" Style="{StaticResource SubtitleStyle}" Text="Search Bar" />
+                <VerticalStackLayout Grid.Row="1" Grid.Column="3">
+                    <SearchBar Text="Search bar with text" />
+                    <SearchBar Placeholder="Search bar with placeholder" />
+                    <SearchBar Placeholder="Search bar with orange placeholder" PlaceholderColor="Orange" />
+                </VerticalStackLayout>
+
+                <!--Entry-->
+                <Label Grid.Row="2" Grid.Column="0" Style="{StaticResource SubtitleStyle}" Text="Entry" />
+                <VerticalStackLayout Grid.Row="3" Grid.Column="0">
+                    <Entry Text="Entry with text" />
+                    <Entry Text="Entry with background" BackgroundColor="Lime" />
+                    <Entry Placeholder="Entry with orange placeholder" PlaceholderColor="Orange" />
+                </VerticalStackLayout>
+
+                <!--Picker-->
+                <Label Grid.Row="2" Grid.Column="1" Style="{StaticResource SubtitleStyle}" Text="Picker" />
+                <Picker Grid.Row="3" Grid.Column="1" x:Name="picker" HorizontalOptions="Center"
+                        VerticalOptions="Center" TitleColor="Lime" BackgroundColor="Gray">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Item1</x:String>
+                            <x:String>Item2</x:String>
+                            <x:String>Item3</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+
+                <!--Radio Button-->
+                <Label Grid.Row="2" Grid.Column="2" Style="{StaticResource SubtitleStyle}" Text="RadioButton" />
+                <VerticalStackLayout Grid.Row="3" Grid.Column="2">
+                    <RadioButton GroupName="g" Content="Radio Button1" IsChecked="True" />
+                    <RadioButton GroupName="g" Content="With orange border" BorderColor="Orange"
+                                 BorderWidth="2" />
+                </VerticalStackLayout>
+
+                <!--Slider-->
+                <Label Grid.Row="2" Grid.Column="3" Style="{StaticResource SubtitleStyle}" Text="Slider" />
+                <VerticalStackLayout Grid.Row="3" Grid.Column="3">
+                    <Slider Minimum="0" Maximum="100" Value="50" />
+                    <Slider Minimum="0" Maximum="100" Value="50" BackgroundColor="Orange" />
+                    <Label Text="Slider with orange button" />
+                    <Slider ThumbColor="Orange" MinimumTrackColor="Blue" MaximumTrackColor="Red" Minimum="0"
+                            Maximum="100" Value="60" />
+                </VerticalStackLayout>
+
+                <!--Stepper-->
+                <Label Grid.Row="4" Grid.Column="0" Style="{StaticResource SubtitleStyle}" Text="Stepper" />
+                <VerticalStackLayout Grid.Row="5" Grid.Column="0">
+                    <HorizontalStackLayout>
+                        <Stepper x:Name="_stepper" Minimum="0" Maximum="100" Value="50" BackgroundColor="Lime" />
+                        <Label Text="{Binding Source={x:Reference _stepper}, Path=Value, StringFormat='Value: {0:F0}'}" />
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+
+                <!--Switch-->
+                <Label Grid.Row="4" Grid.Column="1" Style="{StaticResource SubtitleStyle}" Text="Switch" />
+                <VerticalStackLayout Grid.Row="5" Grid.Column="1">
+                    <HorizontalStackLayout>
+                        <Label Text="On Switch:" />
+                        <Switch IsToggled="True" OnColor="Lime" />
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout>
+                        <Label Text="Off Switch:" />
+                        <Switch IsToggled="False" BackgroundColor="Orange" />
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout>
+                        <Label Text="Orange thumb" />
+                        <Switch IsToggled="True" ThumbColor="Orange" />
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+
+                <!--Time Picker-->
+                <Label Grid.Row="4" Grid.Column="2" Style="{StaticResource SubtitleStyle}" Text="Time Picker" />
+                <TimePicker Grid.Row="5" Grid.Column="2" HorizontalOptions="Center" VerticalOptions="Center"
+                            Time="14:30:00" />
+            </Grid>
+
+            <Label Text="Controls" Style="{StaticResource TitleStyle}" />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="150" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="150" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="150" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!--Activity Indicator-->
+                <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource SubtitleStyle}" Text="Activity Indicator" />
+                <VerticalStackLayout Grid.Row="1" Grid.Column="0">
+                    <ActivityIndicator Color="Orange" IsRunning="True" />
+                </VerticalStackLayout>
+
+                <!--Border-->
+                <Label Grid.Row="0" Grid.Column="1" Style="{StaticResource SubtitleStyle}" Text="Border" />
+                <Border Grid.Row="1" Grid.Column="1" Stroke="Orange" StrokeShape="RoundRectangle 40,0,0,40"
+                        Background="LightGray">
+                    <Label Text="This is a border" HorizontalOptions="Center" VerticalOptions="Center" />
+                </Border>
+
+                <!--BoxView-->
+                <Label Grid.Row="0" Grid.Column="2" Style="{StaticResource SubtitleStyle}" Text="BoxView" />
+                <BoxView Grid.Row="1" Grid.Column="2" BackgroundColor="LightGray" Color="Orange"
+                         CornerRadius="30,0,30,0" />
+
+                <!--Button-->
+                <Label Grid.Row="2" Grid.Column="0" Style="{StaticResource SubtitleStyle}" Text="Button" />
+                <VerticalStackLayout Grid.Row="3" Grid.Column="0">
+                    <Button Text="Button" />
+                    <Button Text="Button with gradient background" BorderColor="Orange"
+                            BorderWidth="2" TextColor="LightGray">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="1,0">
+                                <GradientStop Color="Orange"
+                                              Offset="0.1" />
+                                <GradientStop Color="Gray"
+                                              Offset="1.0" />
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <ImageButton Source="cat.jpg" HeightRequest="40" BackgroundColor="LightGray" />
+                </VerticalStackLayout>
+
+                <!--Frame-->
+                <Label Grid.Row="2" Grid.Column="1" Style="{StaticResource SubtitleStyle}" Text="Frame" />
+                <Frame Grid.Row="3" Grid.Column="1" BorderColor="Orange" VerticalOptions="Center">
+                    <Frame.Background>
+                        <LinearGradientBrush EndPoint="0,1">
+                            <GradientStop Color="Orange"
+                                          Offset="0.1" />
+                            <GradientStop Color="Gray"
+                                          Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Frame.Background>
+                    <Label Text="This is a frame with gradient background!!" HorizontalOptions="Center"
+                           VerticalOptions="Center" />
+                </Frame>
+
+                <!--Image-->
+                <Label Grid.Row="2" Grid.Column="2" Style="{StaticResource SubtitleStyle}" Text="Image" />
+                <Image Grid.Row="3" Grid.Column="2" Source="test.jpg" HorizontalOptions="Center" />
+
+                <!--Label-->
+                <Label Grid.Row="2" Grid.Column="3" Style="{StaticResource SubtitleStyle}" Text="Label" />
+                <VerticalStackLayout Grid.Row="3" Grid.Column="3">
+                    <Label Text="Simple label" />
+                    <Label Text="Bold label" FontAttributes="Bold" />
+                    <Label Text="Italic label" FontAttributes="Italic" />
+                    <Label Text="Orange Label" TextColor="Orange" />
+                    <Label Text="Label with Lime background" BackgroundColor="Lime" />
+                </VerticalStackLayout>
+
+                <!--ProgressBar-->
+                <Label Grid.Row="4" Grid.Column="0" Style="{StaticResource SubtitleStyle}" Text="ProgressBar" />
+                <VerticalStackLayout Grid.Row="5" Grid.Column="0">
+                    <Label Text="Default" />
+                    <ProgressBar Progress="0.4" BackgroundColor="Gray" />
+                    <Label Text="Orange" />
+                    <ProgressBar Progress="0.5" ProgressColor="Orange" />
+                    <Label Text="With background" />
+                    <ProgressBar Progress="0.6" BackgroundColor="Gray" ProgressColor="Orange" />
+                </VerticalStackLayout>
+
+            </Grid>
+
+            <Label Text="Shapes" Style="{StaticResource TitleStyle}" />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="120" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="120" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.Resources>
+                    <ResourceDictionary>
+                        <Style TargetType="HorizontalStackLayout">
+                            <Setter Property="HorizontalOptions" Value="Center" />
+                        </Style>
+                    </ResourceDictionary>
+                </Grid.Resources>
+
+                <!--Ellipse-->
+                <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource SubtitleStyle}" Text="Ellipse" />
+                <Ellipse Grid.Row="1" Grid.Column="0" Stroke="Orange" Fill="LightGray" StrokeThickness="3"
+                         WidthRequest="60" HeightRequest="40" />
+
+                <!--Line-->
+                <Label Grid.Row="0" Grid.Column="1" Style="{StaticResource SubtitleStyle}" Text="Line" />
+                <HorizontalStackLayout Grid.Row="1" Grid.Column="1">
+                    <Line Stroke="Orange" Fill="Lime" StrokeThickness="2" X1="10" X2="250" Y1="25" Y2="30" />
+                </HorizontalStackLayout>
+
+                <!--Path-->
+                <Label Grid.Row="0" Grid.Column="2" Style="{StaticResource SubtitleStyle}" Text="Path" />
+                <HorizontalStackLayout Grid.Row="1" Grid.Column="2">
+                    <Path Data="M 10,100 L 100,100 100,50Z" Fill="Lime" Stroke="Orange" />
+                </HorizontalStackLayout>
+
+                <!--Polygon-->
+                <Label Grid.Row="0" Grid.Column="3" Style="{StaticResource SubtitleStyle}" Text="Polygon" />
+                <HorizontalStackLayout Grid.Row="1" Grid.Column="3">
+                    <Polygon Points="40,10 70,80 10,50" Fill="Gray" Stroke="Orange" StrokeThickness="5" />
+                </HorizontalStackLayout>
+
+                <!--PolyLine-->
+                <Label Grid.Row="2" Grid.Column="0" Style="{StaticResource SubtitleStyle}" Text="PolyLine" />
+                <HorizontalStackLayout Grid.Row="3" Grid.Column="0">
+                    <Polyline Points="0,0 10,30 15,0 18,60 23,30 35,30 40,0 43,60 48,30 100,30"
+                              Stroke="Orange" />
+                </HorizontalStackLayout>
+
+                <!--Rectangle-->
+                <Label Grid.Row="2" Grid.Column="1" Style="{StaticResource SubtitleStyle}" Text="Rectangle" />
+                <HorizontalStackLayout Grid.Row="3" Grid.Column="1">
+                    <Rectangle Fill="Gray" Stroke="Orange" WidthRequest="150"
+                               HeightRequest="75" VerticalOptions="Center" HorizontalOptions="Center" />
+                </HorizontalStackLayout>
+
+                <!--RoundRectangle-->
+                <Label Grid.Row="2" Grid.Column="2" Style="{StaticResource SubtitleStyle}" Text="RoundRectangle" />
+                <HorizontalStackLayout Grid.Row="3" Grid.Column="2">
+                    <RoundRectangle Fill="Gray" Stroke="Orange" WidthRequest="150"
+                                    HeightRequest="75" VerticalOptions="Center" HorizontalOptions="Center"
+                                    CornerRadius="20,0,20,0" />
+                </HorizontalStackLayout>
+            </Grid>
+
+            <Label Text="Collections" Style="{StaticResource TitleStyle}" />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="300" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource SubtitleStyle}" Text="ListView" />
+                <ListView x:Name="_listView" Grid.Row="1" Grid.Column="0" IsGroupingEnabled="True" HeightRequest="300"
+                          pdf:PdfRendererAttributes.ListViewRendererDelegate="{StaticResource ListViewRendererDelegate}">
+                    <ListView.GroupHeaderTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Label Text="{Binding Key}" VerticalOptions="Center"
+                                       FontAttributes="Bold" />
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.GroupHeaderTemplate>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <VerticalStackLayout VerticalOptions="Center" Spacing="0" Padding="2">
+                                    <Label Text="{Binding Name}" FontAttributes="Bold" />
+                                    <Label Text="{Binding Country}" FontAttributes="Italic" />
+                                </VerticalStackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <Label Grid.Row="0" Grid.Column="1" Style="{StaticResource SubtitleStyle}" Text="CollectionView" />
+                <CollectionView x:Name="_collectionView" Grid.Row="1" Grid.Column="1">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Label Text="{Binding Name}" />
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+
+            <Button Grid.Row="8" Grid.Column="1" pdf:PdfRendererAttributes.ShouldRender="False" Text="Generate PDF"
+                    HorizontalOptions="Center" Clicked="GeneratePDF" />
+        </VerticalStackLayout>
+    </ScrollView>
+
+
+</ContentPage>
