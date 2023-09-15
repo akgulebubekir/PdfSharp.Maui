@@ -65,7 +65,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\PdfSharpCore\PdfSharpCore.csproj" />
+	  <ProjectReference Include="..\PdfSharpCore\PdfSharp.Maui.Core.csproj" />
 	</ItemGroup>
 
 </Project>

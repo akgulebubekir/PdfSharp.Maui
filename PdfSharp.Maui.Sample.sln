@@ -5,11 +5,11 @@ VisualStudioVersion = 17.0.31611.283
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PdfSharp.Maui.Sample", "PdfSharp.Maui.Sample\PdfSharp.Maui.Sample.csproj", "{75EC0EDD-CC2D-4F9A-9071-0D8632AE6983}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PdfSharpCore", "PdfSharpCore\PdfSharpCore.csproj", "{56F32EB8-E50A-4FC2-AF35-ED98354FDF9A}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PdfSharpCore.Charting", "PdfSharpCore.Charting\PdfSharpCore.Charting.csproj", "{B068FDD3-67BD-4720-BCC9-ED6212526153}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PdfSharp.Maui", "PdfSharp.Maui\PdfSharp.Maui.csproj", "{BB74222F-EBC9-4E90-903A-D3E550515729}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PdfSharp.Maui.Core", "PdfSharp.Maui.Core\PdfSharp.Maui.Core.csproj", "{F2619189-54FB-4037-9E1C-72F2F183562A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PdfSharp.Maui.Core.Charting", "PdfSharp.Maui.Core.Charting\PdfSharp.Maui.Core.Charting.csproj", "{4FB22713-E5A1-4E49-919A-1F2BCDECD80B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,18 +23,18 @@ Global
 		{75EC0EDD-CC2D-4F9A-9071-0D8632AE6983}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75EC0EDD-CC2D-4F9A-9071-0D8632AE6983}.Release|Any CPU.Build.0 = Release|Any CPU
 		{75EC0EDD-CC2D-4F9A-9071-0D8632AE6983}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{56F32EB8-E50A-4FC2-AF35-ED98354FDF9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{56F32EB8-E50A-4FC2-AF35-ED98354FDF9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{56F32EB8-E50A-4FC2-AF35-ED98354FDF9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{56F32EB8-E50A-4FC2-AF35-ED98354FDF9A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B068FDD3-67BD-4720-BCC9-ED6212526153}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B068FDD3-67BD-4720-BCC9-ED6212526153}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B068FDD3-67BD-4720-BCC9-ED6212526153}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B068FDD3-67BD-4720-BCC9-ED6212526153}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BB74222F-EBC9-4E90-903A-D3E550515729}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BB74222F-EBC9-4E90-903A-D3E550515729}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB74222F-EBC9-4E90-903A-D3E550515729}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB74222F-EBC9-4E90-903A-D3E550515729}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2619189-54FB-4037-9E1C-72F2F183562A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2619189-54FB-4037-9E1C-72F2F183562A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2619189-54FB-4037-9E1C-72F2F183562A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2619189-54FB-4037-9E1C-72F2F183562A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FB22713-E5A1-4E49-919A-1F2BCDECD80B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FB22713-E5A1-4E49-919A-1F2BCDECD80B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FB22713-E5A1-4E49-919A-1F2BCDECD80B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FB22713-E5A1-4E49-919A-1F2BCDECD80B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

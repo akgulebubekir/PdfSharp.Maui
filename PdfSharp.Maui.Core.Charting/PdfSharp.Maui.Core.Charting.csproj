@@ -4,6 +4,10 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>PdfSharp.Maui.Core.Charting</Title>
+    <Description>Charting extension for PDF sharp Maui core</Description>
+    <PackageProjectUrl>https://github.com/akgulebubekir/PdfSharp.Maui</PackageProjectUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -11,7 +15,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PdfSharpCore\PdfSharpCore.csproj" />
+    <ProjectReference Include="..\PdfSharp.Maui.Core\PdfSharp.Maui.Core.csproj" />
   </ItemGroup>
 
 </Project>
