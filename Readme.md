@@ -5,7 +5,7 @@ PdfSharp.Maui
 It uses[PdfSharpCore](https://github.com/groege/PdfSharpCore) which is based on [PdfSharp](http://www.pdfsharp.net/).
 
 
-[![NuGet](https://img.shields.io/badge/nuget-v1.0.1-blue.svg?style=plastic)](https://www.nuget.org/packages/PdfSharp.Maui)
+[![NuGet](https://img.shields.io/badge/nuget-v1.0.2-blue.svg?style=plastic)](https://www.nuget.org/packages/PdfSharp.Maui)
 
 
 ### Demo

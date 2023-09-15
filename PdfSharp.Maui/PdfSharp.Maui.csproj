@@ -23,6 +23,7 @@
 		<PackageReadmeFile>Readme.md</PackageReadmeFile>
 		<RepositoryUrl>https://github.com/akgulebubekir/PDFSharp.Maui</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
+		<Version>1.0.2</Version>
 		<PackageTags>PDF, .net, maui, pdfsharp</PackageTags>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
@@ -65,7 +66,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\PdfSharpCore\PdfSharp.Maui.Core.csproj" />
+	  <PackageReference Include="PdfSharp.Maui.Core" Version="1.0.2" />
 	</ItemGroup>
-
 </Project>
