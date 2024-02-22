@@ -16,7 +16,7 @@ public class PdfSearchBarRenderer : PdfRendererBase<SearchBar>
             ? $"{GetProperty<string>(SearchBarProperties.ImageSourcePlatform)}_{themeName}"
             : "windows_light";
 
-        var searchIcon = XImage.FromStream(()=>
+        var searchIcon = XImage.FromStream(
             typeof(PdfSearchBarRenderer).GetTypeInfo().Assembly.GetManifestResourceStream(
                 $"PdfSharp.Maui.Icons.search_{searchIconName}.png"));
 
@@ -30,7 +30,7 @@ public class PdfSearchBarRenderer : PdfRendererBase<SearchBar>
         page.DrawRoundedRectangle(new XPen(GetProperty<XColor>(ViewProperties.BorderColor), 1.5 * scaleFactor),
             GetProperty<XRect>(ViewProperties.BorderLocation), new XSize(cornerRadius, cornerRadius));
 
-        page.DrawImage(searchIcon, GetProperty<XRect>(ViewProperties.ImageLocation), CancellationToken.None);
+        page.DrawImage(searchIcon, GetProperty<XRect>(ViewProperties.ImageLocation));
 
         if (!string.IsNullOrEmpty(view.Text))
         {

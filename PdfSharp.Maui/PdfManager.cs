@@ -1,8 +1,7 @@
 ﻿using System.Reflection;
 using PdfSharp.Maui.Attributes;
 using PdfSharp.Maui.Contracts;
-using PdfSharpCore.Pdf;
-using ImageSource = MigraDocCore.DocumentObjectModel.MigraDoc.DocumentObjectModel.Shapes.ImageSource;
+using PdfSharp.Pdf;
 
 namespace PdfSharp.Maui;
 
@@ -23,7 +22,6 @@ public class PdfManager
         _renderers = new Dictionary<Type, Type>();
         rendererAssemblies ??= new List<Assembly>();
         var thisAssembly = typeof(PdfManager).GetTypeInfo().Assembly;
-        PdfImageSourceProvider.RegisterImageSource(); 
 
         if (!rendererAssemblies.Contains(thisAssembly))
         {

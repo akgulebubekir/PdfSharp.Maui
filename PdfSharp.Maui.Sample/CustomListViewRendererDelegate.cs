@@ -1,5 +1,5 @@
-﻿using PdfSharpCore.Drawing;
-using PdfSharpCore.Fonts;
+﻿using PdfSharp.Drawing;
+using PdfSharp.Fonts;
 using PdfSharp.Maui.Extensions;
 using PdfSharp.Maui.Sample.Models;
 
@@ -13,9 +13,8 @@ internal class CustomListViewRendererDelegate : Delegates.PdfListViewRendererDel
     public override void DrawCell(ListView view, int section, int row, XGraphics page, XRect bounds,
         double scaleFactor)
     {
-        var boldFont = new XFont(GlobalFontSettings.DefaultFontName, 14 * scaleFactor, XFontStyle.Bold);
-        var italicFont = new XFont(GlobalFontSettings.DefaultFontName, 14 * scaleFactor,
-            XFontStyle.Italic);
+        var boldFont = new XFont(GlobalFontSettings.DefaultFontName, 14 * scaleFactor, XFontStyleEx.Bold);
+        var italicFont = new XFont(GlobalFontSettings.DefaultFontName, 14 * scaleFactor, XFontStyleEx.Italic);
         var itemSource = view.ItemsSource as IEnumerable<IGrouping<string, City>>;
         var item = itemSource.ElementAt(section).ElementAt(row);
 
@@ -37,7 +36,7 @@ internal class CustomListViewRendererDelegate : Delegates.PdfListViewRendererDel
 
     public override void DrawGroupHeader(ListView view, int section, XGraphics page, XRect bounds, double scaleFactor)
     {
-        var font = new XFont(GlobalFontSettings.DefaultFontName, 14 * scaleFactor, XFontStyle.Bold);
+        var font = new XFont(GlobalFontSettings.DefaultFontName, 14 * scaleFactor, XFontStyleEx.Bold);
         var itemSource = view.ItemsSource as IEnumerable<IGrouping<string, City>>;
         page.DrawString(itemSource.ElementAt(section).Key, font, _defaultTextColor, bounds, XStringFormats.CenterLeft);
     }

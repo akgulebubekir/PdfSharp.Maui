@@ -1,4 +1,4 @@
-﻿using PdfSharpCore.Pdf;
+﻿using PdfSharp.Pdf;
 
 namespace PdfSharp.Maui.Utils;
 

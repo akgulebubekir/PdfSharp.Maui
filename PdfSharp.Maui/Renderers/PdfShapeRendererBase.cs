@@ -4,10 +4,9 @@ namespace PdfSharp.Maui.Renderers;
 
 public abstract class PdfShapeRendererBase<T> : PdfRendererBase<T> where T : Shape
 {
-    protected static XGraphicsPath GetPath(PathF path, XRect controlBounds, XRect bounds, bool isConnectedPath = true)
+    protected static XGraphicsPath GetPath(PathF path, XRect controlBounds, XRect bounds)
     {
         var gPath = new XGraphicsPath();
-
         for (var i = 0; i < path.Count - 1; i++)
         {
             var p1 = TransformPoint(path[i].ToXPoint(), controlBounds, bounds);
@@ -15,7 +14,7 @@ public abstract class PdfShapeRendererBase<T> : PdfRendererBase<T> where T : Sha
             gPath.AddLine(p1, p2);
         }
 
-        if (isConnectedPath)
+        if (path.Closed)
         {
             var pFirst = TransformPoint(path[0].ToXPoint(), controlBounds, bounds);
             var pLast = TransformPoint(path[^1].ToXPoint(), controlBounds, bounds);

@@ -26,9 +26,9 @@ public class PdfImageButtonRenderer : PdfRendererBase<ImageButton>
 
         var img = view.Source switch
         {
-            FileImageSource f => XImage.FromStream(()=>FileSystem.OpenAppPackageFileAsync(f.File).Result),
+            FileImageSource f => XImage.FromStream(FileSystem.OpenAppPackageFileAsync(f.File).Result),
             UriImageSource u => XImage.FromFile(u.Uri.AbsolutePath),
-            StreamImageSource s => XImage.FromStream(()=>s.Stream.Invoke(new CancellationToken()).Result),
+            StreamImageSource s => XImage.FromStream(s.Stream.Invoke(new CancellationToken()).Result),
             _ => throw new ArgumentException("Image.Source")
         };
 
@@ -47,7 +47,7 @@ public class PdfImageButtonRenderer : PdfRendererBase<ImageButton>
 
         var centeredBounds = new XRect(bounds.X + (bounds.Width - desiredBounds.Width) / 2,
             bounds.Y + (bounds.Height - desiredBounds.Height) / 2, desiredBounds.Width, desiredBounds.Height);
-        page.DrawImage(img, centeredBounds, CancellationToken.None);
+        page.DrawImage(img, centeredBounds);
     }
 
     protected override void CreateUniformLayoutParameters(XGraphics page, ImageButton view, XRect bounds,

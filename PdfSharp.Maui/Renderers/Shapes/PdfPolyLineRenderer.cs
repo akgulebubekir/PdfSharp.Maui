@@ -8,7 +8,7 @@ public class PdfPolyLineRenderer : PdfShapeRendererBase<Polyline>
 {
     protected override void CreateLayout(XGraphics page, Polyline view, XRect bounds, double scaleFactor)
     {
-        var path = GetPath(view.GetPath(), view.Bounds.ToXRect(), bounds, false);
+        var path = GetPath(view.GetPath(), view.Bounds.ToXRect(), bounds);
         var background = view.GetBackgroundBrush(bounds);
         
         if (background.IsNotDefault())

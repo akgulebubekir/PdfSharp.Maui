@@ -30,42 +30,44 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <None Remove="DefaultFonts\OpenSans-Bold.ttf" />
-	  <None Remove="DefaultFonts\OpenSans-BoldItalic.ttf" />
-	  <None Remove="DefaultFonts\OpenSans-Italic.ttf" />
-	  <None Remove="DefaultFonts\OpenSans-Regular.ttf" />
-	  <None Remove="Icons\search_android.png" />
-	  <None Remove="Icons\search_android_dark.png" />
-	  <None Remove="Icons\search_android_light.png" />
-	  <None Remove="Icons\search_ios.png" />
-	  <None Remove="Icons\search_ios_dark.png" />
-	  <None Remove="Icons\search_ios_light.png" />
-	  <None Remove="Icons\search_windows.png" />
-	  <None Remove="Icons\search_windows_dark.png" />
-	  <None Remove="Icons\search_windows_light.png" />
+		<None Remove="DefaultFonts\OpenSans-Bold.ttf" />
+		<None Remove="DefaultFonts\OpenSans-BoldItalic.ttf" />
+		<None Remove="DefaultFonts\OpenSans-Italic.ttf" />
+		<None Remove="DefaultFonts\OpenSans-Regular.ttf" />
+		<None Remove="Icons\search_android.png" />
+		<None Remove="Icons\search_android_dark.png" />
+		<None Remove="Icons\search_android_light.png" />
+		<None Remove="Icons\search_ios.png" />
+		<None Remove="Icons\search_ios_dark.png" />
+		<None Remove="Icons\search_ios_light.png" />
+		<None Remove="Icons\search_windows.png" />
+		<None Remove="Icons\search_windows_dark.png" />
+		<None Remove="Icons\search_windows_light.png" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <EmbeddedResource Include="DefaultFonts\OpenSans-Bold.ttf" />
-	  <EmbeddedResource Include="DefaultFonts\OpenSans-BoldItalic.ttf" />
-	  <EmbeddedResource Include="DefaultFonts\OpenSans-Italic.ttf" />
-	  <EmbeddedResource Include="DefaultFonts\OpenSans-Regular.ttf" />
-	  <EmbeddedResource Include="Icons\search_android_dark.png" />
-	  <EmbeddedResource Include="Icons\search_android_light.png" />
-	  <EmbeddedResource Include="Icons\search_ios_dark.png" />
-	  <EmbeddedResource Include="Icons\search_ios_light.png" />
-	  <EmbeddedResource Include="Icons\search_windows_light.png" />
-	  <EmbeddedResource Include="Icons\search_windows_dark.png" />
+		<EmbeddedResource Include="DefaultFonts\OpenSans-Bold.ttf" />
+		<EmbeddedResource Include="DefaultFonts\OpenSans-BoldItalic.ttf" />
+		<EmbeddedResource Include="DefaultFonts\OpenSans-Italic.ttf" />
+		<EmbeddedResource Include="DefaultFonts\OpenSans-Regular.ttf" />
+		<EmbeddedResource Include="Icons\search_android_dark.png" />
+		<EmbeddedResource Include="Icons\search_android_light.png" />
+		<EmbeddedResource Include="Icons\search_ios_dark.png" />
+		<EmbeddedResource Include="Icons\search_ios_light.png" />
+		<EmbeddedResource Include="Icons\search_windows_light.png" />
+		<EmbeddedResource Include="Icons\search_windows_dark.png" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Include="..\Readme.md">
-	    <Pack>True</Pack>
-	    <PackagePath>\</PackagePath>
-	  </None>
+		<None Include="..\Readme.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="PdfSharp.Maui.Core" Version="1.0.2" />
+		<PackageReference Include="PDFsharp" Version="6.0.0" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 	</ItemGroup>
 </Project>

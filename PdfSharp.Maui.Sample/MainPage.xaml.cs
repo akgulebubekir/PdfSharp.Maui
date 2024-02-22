@@ -1,5 +1,4 @@
 ﻿using PdfSharp.Maui.Sample.Models;
-using PdfSharpCore;
 using Path = System.IO.Path;
 
 namespace PdfSharp.Maui.Sample;

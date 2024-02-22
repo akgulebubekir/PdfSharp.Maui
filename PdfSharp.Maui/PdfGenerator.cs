@@ -1,5 +1,5 @@
 ﻿using PdfSharp.Maui.Renderers;
-using PdfSharpCore.Pdf;
+using PdfSharp.Pdf;
 
 namespace PdfSharp.Maui;
 

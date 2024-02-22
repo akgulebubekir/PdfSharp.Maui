@@ -20,12 +20,12 @@ public class PdfImageRenderer : PdfRendererBase<Image>
 
         var img = view.Source switch
         {
-            FileImageSource f => XImage.FromStream(() => FileSystem.OpenAppPackageFileAsync(f.File).Result),
+            FileImageSource f => XImage.FromStream(FileSystem.OpenAppPackageFileAsync(f.File).Result),
             UriImageSource u => XImage.FromFile(u.Uri.AbsolutePath),
-            StreamImageSource s => XImage.FromStream(()=>s.Stream.Invoke(new CancellationToken()).Result),
+            StreamImageSource s => XImage.FromStream(s.Stream.Invoke(new CancellationToken()).Result),
             _ => throw new ArgumentException("Image.Source")
         };
 
-        page.DrawImage(img, bounds,CancellationToken.None);
+        page.DrawImage(img, bounds);
     }
 }
