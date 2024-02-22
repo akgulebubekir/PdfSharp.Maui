@@ -5,7 +5,7 @@ PdfSharp.Maui
 It uses[PdfSharp](https://github.com/empira/PDFsharp) ).
 
 
-[![NuGet](https://img.shields.io/badge/nuget-v1.0.2-blue.svg?style=plastic)](https://www.nuget.org/packages/PdfSharp.Maui)
+[![NuGet](https://img.shields.io/badge/nuget-v1.0.3-blue.svg?style=plastic)](https://www.nuget.org/packages/PdfSharp.Maui)
 
 
 ### Demo
