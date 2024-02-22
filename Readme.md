@@ -2,7 +2,7 @@ PdfSharp.Maui
 ======================
 
 **PdfSharp.Maui** is a Microsoft.Maui library for **converting any Maui.View into PDF**.
-It uses[PdfSharpCore](https://github.com/groege/PdfSharpCore) which is based on [PdfSharp](http://www.pdfsharp.net/).
+It uses[PdfSharp](https://github.com/empira/PDFsharp) ).
 
 
 [![NuGet](https://img.shields.io/badge/nuget-v1.0.2-blue.svg?style=plastic)](https://www.nuget.org/packages/PdfSharp.Maui)
@@ -28,9 +28,7 @@ By following ([Demo](https://github.com/akgulebubekir/PDFSharp.Maui/tree/master/
 > - Gradient background color support (`LinearGradientBrush` and `SolidColorBrush`)
 
 ### Limitations
-> - Images renders only Jpeg format (It converts PNG to JPEG automatically)
-> - CustomFont provider can be set only once (PdfSharp limitation)
-> - It does not support `RadialGradientBrush`
+> - It does not support `RadialGradientBrush` yet.
 
 
 ### ListView & CollectionView Rendering
