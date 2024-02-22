@@ -21,7 +21,7 @@ By following ([Demo](https://github.com/akgulebubekir/PDFSharp.Maui/tree/master/
 ### Features
 > - Universal style and Platform Specific(WYSIWYG) Pdf rendering
 > - Custom Fonts (You should provide Font while creating `PdfManager`)
-> - Image rendering (`FileImageSource`'s must be copied under `Resources/Raw` folder )
+> - Image rendering (`FileImageSource`'s must be copied under `Resources/Raw` folder ). It also supports `png` images.
 > - Custom renderer (Write your own renderer for your own custom view) 
 > - Paper size & orientation support
 > - Do not render option : by using `pdf:PdfRendererAttributes.ShouldRender="False"` you can ignore the view from rendering

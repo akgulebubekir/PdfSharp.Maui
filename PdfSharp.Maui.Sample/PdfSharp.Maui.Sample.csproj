@@ -40,9 +40,6 @@
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
 		<MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
-		<MauiImage Update="Resources\Images\test.jpg">
-		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-		</MauiImage>
 
 		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />
@@ -53,9 +50,9 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Images\cat.jpg" />
-	  <None Remove="Resources\Images\test.jpg" />
+	  <None Remove="Resources\Images\world.png" />
 	  <None Remove="Resources\Raw\cat.jpg" />
-	  <None Remove="Resources\Raw\test.jpg" />
+	  <None Remove="Resources\Raw\world.png" />
 	</ItemGroup>
 
 	<ItemGroup>

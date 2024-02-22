@@ -228,9 +228,9 @@
                     <Frame.Background>
                         <LinearGradientBrush EndPoint="0,1">
                             <GradientStop Color="Orange"
-                                          Offset="0.1" />
+                                  Offset="0.1" />
                             <GradientStop Color="Gray"
-                                          Offset="1.0" />
+                                  Offset="1.0" />
                         </LinearGradientBrush>
                     </Frame.Background>
                     <Label Text="This is a frame with gradient background!!" HorizontalOptions="Center"
@@ -239,7 +239,7 @@
 
                 <!--Image-->
                 <Label Grid.Row="2" Grid.Column="2" Style="{StaticResource SubtitleStyle}" Text="Image" />
-                <Image Grid.Row="3" Grid.Column="2" Source="test.jpg" HorizontalOptions="Center" />
+                <Image Grid.Row="3" Grid.Column="2" Source="world.png" HorizontalOptions="Center" />
 
                 <!--Label-->
                 <Label Grid.Row="2" Grid.Column="3" Style="{StaticResource SubtitleStyle}" Text="Label" />
