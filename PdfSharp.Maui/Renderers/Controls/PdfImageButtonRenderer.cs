@@ -1,5 +1,3 @@
-﻿using PdfSharp.Maui.Attributes;
-
 namespace PdfSharp.Maui.Renderers.Controls;
 
 [PdfRenderer(ViewType = typeof(ImageButton))]
@@ -45,8 +43,8 @@ public class PdfImageButtonRenderer : PdfRendererBase<ImageButton>
             desiredBounds.Height = bounds.Width;
         }
 
-        var centeredBounds = new XRect(bounds.X + (bounds.Width - desiredBounds.Width) / 2,
-            bounds.Y + (bounds.Height - desiredBounds.Height) / 2, desiredBounds.Width, desiredBounds.Height);
+        var centeredBounds = new XRect(bounds.X + ((bounds.Width - desiredBounds.Width) / 2),
+            bounds.Y + ((bounds.Height - desiredBounds.Height) / 2), desiredBounds.Width, desiredBounds.Height);
         page.DrawImage(img, centeredBounds);
     }
 

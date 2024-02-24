@@ -1,6 +1,6 @@
-﻿using System.Collections;
-
 namespace PdfSharp.Maui.Delegates;
+
+using System.Collections;
 
 public class PdfCollectionViewRendererDelegate : ICollectionViewRendererDelegate<CollectionView>
 {

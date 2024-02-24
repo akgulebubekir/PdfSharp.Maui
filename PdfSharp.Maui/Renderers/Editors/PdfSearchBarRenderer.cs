@@ -1,7 +1,6 @@
-﻿using System.Reflection;
-using PdfSharp.Maui.Attributes;
-
 namespace PdfSharp.Maui.Renderers.Editors;
+
+using System.Reflection;
 
 [PdfRenderer(ViewType = typeof(SearchBar))]
 public class PdfSearchBarRenderer : PdfRendererBase<SearchBar>
@@ -59,7 +58,7 @@ public class PdfSearchBarRenderer : PdfRendererBase<SearchBar>
             new XRect(bounds.BottomRight.WithMargin(-0.9 * bounds.Height),
                 new XSize(0.8 * bounds.Height, 0.8 * bounds.Height)));
         Properties.Add(ViewProperties.TextLocation,
-            new XRect(new XPoint(bounds.X + 5 * scaleFactor, bounds.Y),
+            new XRect(new XPoint(bounds.X + (5 * scaleFactor), bounds.Y),
                 new XSize(bounds.Width - bounds.Height, bounds.Height)));
         Properties.Add(ViewProperties.TextColor, XBrushes.Black);
         Properties.Add(ViewProperties.PlaceholderColor, XBrushes.Gray);

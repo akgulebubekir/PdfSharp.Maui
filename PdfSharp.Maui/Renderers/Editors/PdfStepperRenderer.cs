@@ -1,5 +1,3 @@
-﻿using PdfSharp.Maui.Attributes;
-
 namespace PdfSharp.Maui.Renderers.Editors;
 
 [PdfRenderer(ViewType = typeof(Stepper))]
@@ -14,10 +12,10 @@ internal class PdfStepperRenderer : PdfRendererBase<Stepper>
 
         var minusButtonLocation =
             new XRect(
-                new XPoint(bounds.X + (bounds.Width - 2 * buttonSize.Width - buttonSpace) / 2,
-                    bounds.Y + (bounds.Height - buttonSize.Height) / 2), buttonSize);
+                new XPoint(bounds.X + ((bounds.Width - (2 * buttonSize.Width) - buttonSpace) / 2),
+                    bounds.Y + ((bounds.Height - buttonSize.Height) / 2)), buttonSize);
         var plusButtonLocation =
-            new XRect(new XPoint(minusButtonLocation.Right + buttonSpace / 2, minusButtonLocation.Y), buttonSize);
+            new XRect(new XPoint(minusButtonLocation.Right + (buttonSpace / 2), minusButtonLocation.Y), buttonSize);
 
         if (HasProperty(ViewProperties.BackgroundColor))
         {
@@ -68,7 +66,7 @@ internal class PdfStepperRenderer : PdfRendererBase<Stepper>
 
         Properties.Add(ViewProperties.TextColor, XBrushes.Black);
         Properties.Add(ViewProperties.BackgroundColor, view.GetBackgroundBrush(bounds));
-  }
+    }
 
     protected override void CreateWindowsLayoutParameters(XGraphics page, Stepper view, XRect bounds,
         double scaleFactor)

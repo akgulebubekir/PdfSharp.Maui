@@ -1,5 +1,3 @@
-﻿using PdfSharp.Maui.Attributes;
-
 namespace PdfSharp.Maui.Renderers.Controls;
 
 [PdfRenderer(ViewType = typeof(BoxView))]
@@ -19,14 +17,14 @@ public class PdfBoxViewRenderer : PdfRendererBase<BoxView>
     private static XGraphicsPath ConstructPathWithCornerRadius(XRect pageBounds, CornerRadius radius,
         double scaleFactor)
     {
-        var p11 = new XPoint(pageBounds.X, pageBounds.Top + radius.TopLeft * scaleFactor);
-        var p12 = new XPoint(pageBounds.X + radius.TopLeft * scaleFactor, pageBounds.Top);
-        var p21 = new XPoint(pageBounds.Right - radius.TopRight * scaleFactor, pageBounds.Top);
-        var p22 = new XPoint(pageBounds.Right, pageBounds.Top + radius.TopRight * scaleFactor);
-        var p31 = new XPoint(pageBounds.Right, pageBounds.Bottom - radius.BottomRight * scaleFactor);
-        var p32 = new XPoint(pageBounds.Right - radius.BottomRight * scaleFactor, pageBounds.Bottom);
-        var p41 = new XPoint(pageBounds.Left + radius.BottomLeft * scaleFactor, pageBounds.Bottom);
-        var p42 = new XPoint(pageBounds.Left, pageBounds.Bottom - radius.BottomLeft * scaleFactor);
+        var p11 = new XPoint(pageBounds.X, pageBounds.Top + (radius.TopLeft * scaleFactor));
+        var p12 = new XPoint(pageBounds.X + (radius.TopLeft * scaleFactor), pageBounds.Top);
+        var p21 = new XPoint(pageBounds.Right - (radius.TopRight * scaleFactor), pageBounds.Top);
+        var p22 = new XPoint(pageBounds.Right, pageBounds.Top + (radius.TopRight * scaleFactor));
+        var p31 = new XPoint(pageBounds.Right, pageBounds.Bottom - (radius.BottomRight * scaleFactor));
+        var p32 = new XPoint(pageBounds.Right - (radius.BottomRight * scaleFactor), pageBounds.Bottom);
+        var p41 = new XPoint(pageBounds.Left + (radius.BottomLeft * scaleFactor), pageBounds.Bottom);
+        var p42 = new XPoint(pageBounds.Left, pageBounds.Bottom - (radius.BottomLeft * scaleFactor));
         var path = new XGraphicsPath();
 
         if (radius.TopLeft > 0)

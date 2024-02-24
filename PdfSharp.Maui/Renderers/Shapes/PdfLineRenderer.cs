@@ -1,7 +1,7 @@
-﻿using Microsoft.Maui.Controls.Shapes;
-using PdfSharp.Maui.Attributes;
-
 namespace PdfSharp.Maui.Renderers.Shapes;
+
+using Microsoft.Maui.Controls.Shapes;
+
 
 [PdfRenderer(ViewType = typeof(Line))]
 public class PdfLineRenderer : PdfRendererBase<Line>
@@ -14,7 +14,10 @@ public class PdfLineRenderer : PdfRendererBase<Line>
             page.DrawRectangle(view.GetBackgroundBrush(bounds), bounds);
         }
 
-        page.DrawLine(view.Stroke.ToXPen(view.StrokeThickness * scaleFactor), bounds.X + view.X1 * scaleFactor,
-            bounds.Y + view.Y1 * scaleFactor, bounds.X + view.X2 * scaleFactor, bounds.Y + view.Y2 * scaleFactor);
+        page.DrawLine(view.Stroke.ToXPen(view.StrokeThickness * scaleFactor),
+            bounds.X + (view.X1 * scaleFactor),
+            bounds.Y + (view.Y1 * scaleFactor),
+            bounds.X + (view.X2 * scaleFactor),
+            bounds.Y + (view.Y2 * scaleFactor));
     }
 }

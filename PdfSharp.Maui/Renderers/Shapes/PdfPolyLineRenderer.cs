@@ -1,7 +1,6 @@
-﻿using Microsoft.Maui.Controls.Shapes;
-using PdfSharp.Maui.Attributes;
-
 namespace PdfSharp.Maui.Renderers.Shapes;
+
+using Microsoft.Maui.Controls.Shapes;
 
 [PdfRenderer(ViewType = typeof(Polyline))]
 public class PdfPolyLineRenderer : PdfShapeRendererBase<Polyline>
@@ -10,7 +9,7 @@ public class PdfPolyLineRenderer : PdfShapeRendererBase<Polyline>
     {
         var path = GetPath(view.GetPath(), view.Bounds.ToXRect(), bounds);
         var background = view.GetBackgroundBrush(bounds);
-        
+
         if (background.IsNotDefault())
         {
             page.DrawRectangle(view.GetBackgroundBrush(bounds), bounds);

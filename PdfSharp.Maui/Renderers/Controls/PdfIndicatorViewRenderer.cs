@@ -1,5 +1,3 @@
-﻿using PdfSharp.Maui.Attributes;
-
 namespace PdfSharp.Maui.Renderers.Controls;
 
 [PdfRenderer(ViewType = typeof(IndicatorView))]

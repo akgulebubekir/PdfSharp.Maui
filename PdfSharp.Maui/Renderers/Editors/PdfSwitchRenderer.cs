@@ -1,5 +1,3 @@
-﻿using PdfSharp.Maui.Attributes;
-
 namespace PdfSharp.Maui.Renderers.Editors;
 
 [PdfRenderer(ViewType = typeof(Switch))]
@@ -29,13 +27,13 @@ public class PdfSwitchRenderer : PdfRendererBase<Switch>
             view.IsToggled
                 ? baseLocation.Right + thumbXOffset - thumbWith + scaleFactor
                 : baseLocation.X - thumbXOffset,
-            bounds.Y + (bounds.Height - thumbWith) / 2, thumbWith, thumbWith);
+            bounds.Y + ((bounds.Height - thumbWith) / 2), thumbWith, thumbWith);
 
         if (GetProperty<bool>(SwitchProperties.HasStateText))
         {
             var text = view.IsToggled ? "On" : "Off";
             var font = new XFont(GlobalFontSettings.DefaultFontName, 14 * scaleFactor);
-            var textLocation = new XRect(new XPoint(baseLocation.Right + 4 * scaleFactor, bounds.Y),
+            var textLocation = new XRect(new XPoint(baseLocation.Right + (4 * scaleFactor), bounds.Y),
                 new XSize(bounds.Width - baseLocation.Width, bounds.Height));
 
             page.DrawString(text, font, GetProperty<XBrush>(ViewProperties.TextColor), textLocation,
@@ -50,7 +48,7 @@ public class PdfSwitchRenderer : PdfRendererBase<Switch>
         Properties.Add(SwitchProperties.ThumbColor, XBrushes.Black);
         Properties.Add(SwitchProperties.ThumbWidth, bounds.Height * 0.33);
         Properties.Add(SwitchProperties.BaseLocation,
-            new XRect(new XPoint(bounds.X + bounds.Height * 0.2, bounds.Y + bounds.Height * 0.3),
+            new XRect(new XPoint(bounds.X + (bounds.Height * 0.2), bounds.Y + (bounds.Height * 0.3)),
                 new XSize(bounds.Height, bounds.Height * 0.4)));
         Properties.Add(SwitchProperties.BaseColor, XBrushes.White);
         Properties.Add(SwitchProperties.BaseBorderColor, XColors.Black);
@@ -68,7 +66,7 @@ public class PdfSwitchRenderer : PdfRendererBase<Switch>
             view.IsToggled ? new XSolidBrush(XColor.FromArgb(32, 17, 83)) : XBrushes.DarkGray);
         Properties.Add(SwitchProperties.ThumbWidth, bounds.Height * 0.4);
         Properties.Add(SwitchProperties.BaseLocation,
-            new XRect(new XPoint(bounds.X + 0.1 * bounds.Height, bounds.Y + bounds.Height * 0.35),
+            new XRect(new XPoint(bounds.X + (0.1 * bounds.Height), bounds.Y + (bounds.Height * 0.35)),
                 new XSize(bounds.Height * 0.8, bounds.Height * 0.3)));
         Properties.Add(SwitchProperties.ThumbBaseXOffset, bounds.Height * 0.1);
         Properties.Add(SwitchProperties.BaseColor,
@@ -107,9 +105,9 @@ public class PdfSwitchRenderer : PdfRendererBase<Switch>
             view.IsToggled ? XBrushes.White : XBrushes.DarkGray);
         Properties.Add(SwitchProperties.ThumbWidth, bounds.Height * 0.35);
         Properties.Add(SwitchProperties.BaseLocation,
-            new XRect(new XPoint(bounds.X + 3 * scaleFactor, bounds.Y + bounds.Height * 0.275),
+            new XRect(new XPoint(bounds.X + (3 * scaleFactor), bounds.Y + (bounds.Height * 0.275)),
                 new XSize(bounds.Height * 0.9, bounds.Height * 0.45)));
-        Properties.Add(SwitchProperties.ThumbBaseXOffset, -2*scaleFactor);
+        Properties.Add(SwitchProperties.ThumbBaseXOffset, -2 * scaleFactor);
         Properties.Add(SwitchProperties.BaseColor,
             view.IsToggled && view.OnColor.IsNotDefault() ? view.OnColor.ToXBrush() : XBrushes.LightGray);
         Properties.Add(ViewProperties.CornerRadius, 3 * scaleFactor);

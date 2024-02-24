@@ -1,7 +1,6 @@
-﻿using PdfSharp.Maui.Sample.Models;
-using Path = System.IO.Path;
-
 namespace PdfSharp.Maui.Sample;
+
+using PdfSharp.Maui.Sample.Models;
 
 [XamlCompilation(XamlCompilationOptions.Compile)]
 public partial class MainPage

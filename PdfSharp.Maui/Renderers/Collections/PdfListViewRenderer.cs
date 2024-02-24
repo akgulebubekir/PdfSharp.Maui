@@ -1,6 +1,6 @@
-﻿using PdfSharp.Maui.Delegates;
-
 namespace PdfSharp.Maui.Renderers.Collections;
+
+using PdfSharp.Maui.Delegates;
 
 public class PdfListViewRenderer : PdfRendererBase<ListView>
 {
@@ -17,7 +17,7 @@ public class PdfListViewRenderer : PdfRendererBase<ListView>
             var headerBound = new XRect(bounds.X + offset.X,
                 bounds.Y + offset.Y,
                 offset.X + bounds.Width,
-                offset.Y + listViewDelegate.GetHeaderHeight(view) * scaleFactor);
+                offset.Y + (listViewDelegate.GetHeaderHeight(view) * scaleFactor));
 
             listViewDelegate.DrawHeader(view, page, headerBound, scaleFactor);
             offset.Y += headerBound.Height;
@@ -30,7 +30,7 @@ public class PdfListViewRenderer : PdfRendererBase<ListView>
                 var groupHeaderBounds = new XRect(bounds.X + offset.X,
                     bounds.Y + offset.Y,
                     offset.X + bounds.Width,
-                    offset.Y + listViewDelegate.GetGroupHeaderHeight(view, section) * scaleFactor);
+                    offset.Y + (listViewDelegate.GetGroupHeaderHeight(view, section) * scaleFactor));
 
                 listViewDelegate.DrawGroupHeader(view, section, page, groupHeaderBounds, scaleFactor);
                 offset.Y += groupHeaderBounds.Height;
@@ -41,7 +41,7 @@ public class PdfListViewRenderer : PdfRendererBase<ListView>
                 var rowBounds = new XRect(bounds.X + offset.X,
                     bounds.Y + offset.Y,
                     offset.X + bounds.Width,
-                    offset.Y + listViewDelegate.GetCellHeight(view, section, row) * scaleFactor);
+                    offset.Y + (listViewDelegate.GetCellHeight(view, section, row) * scaleFactor));
 
                 listViewDelegate.DrawCell(view, section, row, page, bounds, scaleFactor);
                 offset.Y += rowBounds.Height;
@@ -53,7 +53,7 @@ public class PdfListViewRenderer : PdfRendererBase<ListView>
             var footerBound = new XRect(bounds.X + offset.X,
                 bounds.Y + offset.Y,
                 offset.X + bounds.Width,
-                offset.Y + listViewDelegate.GetFooterHeight(view) * scaleFactor);
+                offset.Y + (listViewDelegate.GetFooterHeight(view) * scaleFactor));
 
             listViewDelegate.DrawFooter(view, page, footerBound, scaleFactor);
             offset.Y += footerBound.Height;

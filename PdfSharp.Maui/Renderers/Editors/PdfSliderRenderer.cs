@@ -1,5 +1,3 @@
-﻿using PdfSharp.Maui.Attributes;
-
 namespace PdfSharp.Maui.Renderers.Editors;
 
 [PdfRenderer(ViewType = typeof(Slider))]
@@ -12,31 +10,31 @@ public class PdfSliderRenderer : PdfRendererBase<Slider>
         var trackHeight = HasProperty(SliderViewProperties.TrackHeight)
             ? GetProperty<double>(SliderViewProperties.TrackHeight)
             : 5 * scaleFactor;
-        
+
         if (HasProperty(ViewProperties.BackgroundColor))
         {
             page.DrawRectangle(GetProperty<XBrush>(ViewProperties.BackgroundColor), bounds.X,
-                bounds.Center.Y - trackHeight / 2, bounds.Width, trackHeight);
+                bounds.Center.Y - (trackHeight / 2), bounds.Width, trackHeight);
         }
 
         page.DrawRectangle(GetProperty<XBrush>(SliderViewProperties.MinTrackColor), bounds.X,
-            bounds.Center.Y - trackHeight / 2, bounds.Width * valueRatio, trackHeight);
+            bounds.Center.Y - (trackHeight / 2), bounds.Width * valueRatio, trackHeight);
 
         page.DrawRectangle(GetProperty<XBrush>(SliderViewProperties.MaxTrackColor),
-            bounds.X + bounds.Width * valueRatio,
-            bounds.Center.Y - trackHeight / 2, bounds.Width - bounds.Width * valueRatio, trackHeight);
+            bounds.X + (bounds.Width * valueRatio),
+            bounds.Center.Y - (trackHeight / 2), bounds.Width - (bounds.Width * valueRatio), trackHeight);
 
         if (HasProperty(SliderViewProperties.ThumbRingColor))
         {
             var thumbRingWith = GetProperty<double>(SliderViewProperties.ThumbRingWidth);
             page.DrawEllipse(GetProperty<XBrush>(SliderViewProperties.ThumbRingColor),
-                bounds.X + bounds.Width * valueRatio - thumbRingWith / 2, bounds.Center.Y - thumbRingWith / 2,
+                bounds.X + (bounds.Width * valueRatio) - (thumbRingWith / 2), bounds.Center.Y - (thumbRingWith / 2),
                 thumbRingWith,
                 thumbRingWith);
         }
 
         page.DrawEllipse(GetProperty<XBrush>(SliderViewProperties.ThumbColor),
-            bounds.X + bounds.Width * valueRatio - thumbWith / 2, bounds.Center.Y - thumbWith / 2, thumbWith,
+            bounds.X + (bounds.Width * valueRatio) - (thumbWith / 2), bounds.Center.Y - (thumbWith / 2), thumbWith,
             thumbWith);
     }
 
@@ -75,7 +73,7 @@ public class PdfSliderRenderer : PdfRendererBase<Slider>
                 : new XSolidBrush(XColor.FromArgb(50, 84, 85)));
         Properties.Add(SliderViewProperties.MaxTrackColor,
             view.MaximumTrackColor.IsNotDefault() ? view.MaximumTrackColor.ToXBrush() : XBrushes.LightGray);
-  }
+    }
 
     protected override void CreateWindowsLayoutParameters(XGraphics page, Slider view, XRect bounds, double scaleFactor)
     {

@@ -1,5 +1,3 @@
-﻿using ArgumentOutOfRangeException = System.ArgumentOutOfRangeException;
-
 namespace PdfSharp.Maui.Utils;
 
 public class SizeUtils
@@ -10,7 +8,7 @@ public class SizeUtils
     /// <param name="pageSize"> Predefined page sizes</param>
     /// <param name="orientation">Page orientation</param>
     /// <returns>Page size in point.</returns>
-    /// <exception cref="System.ArgumentOutOfRangeException"></exception>
+    /// <exception cref="ArgumentOutOfRangeException"></exception>
     public static XSize GetPageSize(PageSize pageSize, PageOrientation orientation = PageOrientation.Portrait)
     {
         var size = PageSizeConverter.ToSize(pageSize);
@@ -38,6 +36,6 @@ public class SizeUtils
         }
 
         var margin = (size.Width + size.Height) * 0.04;
-        return new XRect(margin, margin, size.Width - 2 * margin, size.Height - margin);
+        return new XRect(margin, margin, size.Width - (2 * margin), size.Height - margin);
     }
 }

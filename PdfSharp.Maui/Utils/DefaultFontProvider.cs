@@ -1,28 +1,23 @@
-﻿using System.Reflection;
-using PdfSharp.Maui.Contracts;
-
 namespace PdfSharp.Maui.Utils;
 
-public class DefaultFontProvider : IFontResolver
-{
-    public DefaultFontProvider(ICustomFontProvider fontProvider)
-    {
-        _fontProvider = fontProvider;
-    }
+using System.Reflection;
+using PdfSharp.Maui.Contracts;
 
-    public string DefaultFontName => "OpenSans";
+public class DefaultFontProvider(ICustomFontProvider fontProvider) : IFontResolver
+{
+    public static string DefaultFontName => "OpenSans";
 
     #region Fields
 
-    private readonly ICustomFontProvider _fontProvider;
+    private readonly ICustomFontProvider _fontProvider = fontProvider;
 
     public static readonly string[] DefaultFontFiles =
-    {
+    [
         "OpenSans-Regular.ttf",
         "OpenSans-Bold.ttf",
         "OpenSans-Italic.ttf",
         "OpenSans-BoldItalic.ttf"
-    };
+    ];
 
     #endregion
 
@@ -50,7 +45,7 @@ public class DefaultFontProvider : IFontResolver
         string fontName;
         if (familyName == DefaultFontName || _fontProvider == null)
         {
-            fontName = DefaultFontFiles[Convert.ToInt32(isBold) + 2 * Convert.ToInt32(isItalic)];
+            fontName = DefaultFontFiles[Convert.ToInt32(isBold) + (2 * Convert.ToInt32(isItalic))];
         }
         else
         {

@@ -1,6 +1,6 @@
-﻿using PdfSharp.Maui.Delegates;
-
 namespace PdfSharp.Maui;
+
+using PdfSharp.Maui.Delegates;
 
 public class PdfRendererAttributes : BindableObject
 {

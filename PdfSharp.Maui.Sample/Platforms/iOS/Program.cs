@@ -1,7 +1,8 @@
-﻿using ObjCRuntime;
+namespace PdfSharp.Maui.Sample;
+
+using ObjCRuntime;
 using UIKit;
 
-namespace PdfSharp.Maui.Sample;
 
 public class Program
 {

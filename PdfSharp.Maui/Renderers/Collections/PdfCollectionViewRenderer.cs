@@ -1,6 +1,6 @@
-﻿using PdfSharp.Maui.Delegates;
-
 namespace PdfSharp.Maui.Renderers.Collections;
+
+using PdfSharp.Maui.Delegates;
 
 public class PdfCollectionViewRenderer : PdfRendererBase<CollectionView>
 {
@@ -17,7 +17,7 @@ public class PdfCollectionViewRenderer : PdfRendererBase<CollectionView>
             var headerBound = new XRect(bounds.X + offset.X,
                 bounds.Y + offset.Y,
                 offset.X + bounds.Width,
-                offset.Y + collectionViewDelegate.GetHeaderHeight(view) * scaleFactor);
+                offset.Y + (collectionViewDelegate.GetHeaderHeight(view) * scaleFactor));
 
             collectionViewDelegate.DrawHeader(view, page, headerBound, scaleFactor);
             offset.Y += headerBound.Height;
@@ -30,7 +30,7 @@ public class PdfCollectionViewRenderer : PdfRendererBase<CollectionView>
                 var groupHeaderBounds = new XRect(bounds.X + offset.X,
                     bounds.Y + offset.Y,
                     offset.X + bounds.Width,
-                    offset.Y + collectionViewDelegate.GetGroupHeaderHeight(view, section) * scaleFactor);
+                    offset.Y + (collectionViewDelegate.GetGroupHeaderHeight(view, section) * scaleFactor));
 
                 collectionViewDelegate.DrawGroupHeader(view, section, page, groupHeaderBounds, scaleFactor);
                 offset.Y += groupHeaderBounds.Height;
@@ -41,7 +41,7 @@ public class PdfCollectionViewRenderer : PdfRendererBase<CollectionView>
                 var rowBounds = new XRect(bounds.X + offset.X,
                     bounds.Y + offset.Y,
                     offset.X + bounds.Width,
-                    offset.Y + collectionViewDelegate.GetCellHeight(view, section, row) * scaleFactor);
+                    offset.Y + (collectionViewDelegate.GetCellHeight(view, section, row) * scaleFactor));
 
                 collectionViewDelegate.DrawCell(view, section, row, page, bounds, scaleFactor);
                 offset.Y += rowBounds.Height;
@@ -53,7 +53,7 @@ public class PdfCollectionViewRenderer : PdfRendererBase<CollectionView>
             var footerBound = new XRect(bounds.X + offset.X,
                 bounds.Y + offset.Y,
                 offset.X + bounds.Width,
-                offset.Y + collectionViewDelegate.GetFooterHeight(view) * scaleFactor);
+                offset.Y + (collectionViewDelegate.GetFooterHeight(view) * scaleFactor));
 
             collectionViewDelegate.DrawFooter(view, page, footerBound, scaleFactor);
             offset.Y += footerBound.Height;

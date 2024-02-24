@@ -1,6 +1,6 @@
-﻿using Microsoft.Maui.Controls.Shapes;
-
 namespace PdfSharp.Maui.Renderers;
+
+using Microsoft.Maui.Controls.Shapes;
 
 public abstract class PdfShapeRendererBase<T> : PdfRendererBase<T> where T : Shape
 {
@@ -30,7 +30,7 @@ public abstract class PdfShapeRendererBase<T> : PdfRendererBase<T> where T : Sha
         var xRatio = point.X == 0 ? 0 : (point.X - bound.X) / bound.Width;
         var yRatio = point.Y == 0 ? 0 : (point.Y - bound.Y) / bound.Height;
 
-        return new XPoint(transformBounds.X + transformBounds.Width * xRatio,
-            transformBounds.Y + transformBounds.Height * yRatio);
+        return new XPoint(transformBounds.X + (transformBounds.Width * xRatio),
+            transformBounds.Y + (transformBounds.Height * yRatio));
     }
 }

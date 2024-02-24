@@ -1,9 +1,9 @@
-﻿using System.Reflection;
+namespace PdfSharp.Maui;
+
+using System.Reflection;
 using PdfSharp.Maui.Attributes;
 using PdfSharp.Maui.Contracts;
 using PdfSharp.Pdf;
-
-namespace PdfSharp.Maui;
 
 public class PdfManager
 {
@@ -16,11 +16,10 @@ public class PdfManager
     /// <param name="rendererAssemblies">Provides user's custom renderer assemblies If user have your own renderer that you want layout yourself.</param>
     public PdfManager(ICustomFontProvider customFontProvider = null, IList<Assembly> rendererAssemblies = null)
     {
-        // ReSharper disable once ConstantNullCoalescingCondition
         GlobalFontSettings.FontResolver ??= new DefaultFontProvider(customFontProvider);
 
-        _renderers = new Dictionary<Type, Type>();
-        rendererAssemblies ??= new List<Assembly>();
+        _renderers = [];
+        rendererAssemblies ??= [];
         var thisAssembly = typeof(PdfManager).GetTypeInfo().Assembly;
 
         if (!rendererAssemblies.Contains(thisAssembly))

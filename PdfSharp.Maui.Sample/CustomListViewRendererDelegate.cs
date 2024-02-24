@@ -1,9 +1,9 @@
-﻿using PdfSharp.Drawing;
+namespace PdfSharp.Maui.Sample;
+
+using PdfSharp.Drawing;
 using PdfSharp.Fonts;
 using PdfSharp.Maui.Extensions;
 using PdfSharp.Maui.Sample.Models;
-
-namespace PdfSharp.Maui.Sample;
 
 internal class CustomListViewRendererDelegate : Delegates.PdfListViewRendererDelegate
 {

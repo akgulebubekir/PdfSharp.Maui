@@ -1,4 +1,4 @@
-﻿namespace PdfSharp.Maui;
+namespace PdfSharp.Maui;
 
 internal class ViewInfo
 {

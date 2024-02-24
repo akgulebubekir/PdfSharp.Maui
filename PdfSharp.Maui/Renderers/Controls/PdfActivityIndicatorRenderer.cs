@@ -1,5 +1,3 @@
-﻿using PdfSharp.Maui.Attributes;
-
 namespace PdfSharp.Maui.Renderers.Controls;
 
 [PdfRenderer(ViewType = typeof(ActivityIndicator))]
@@ -30,8 +28,8 @@ public class PdfActivityIndicatorRenderer : PdfRendererBase<ActivityIndicator>
         Properties.Add(ActivityIndicatorProperties.RingAngle, 270);
         Properties.Add(ActivityIndicatorProperties.RingThickness, 5 * scaleFactor);
         Properties.Add(ActivityIndicatorProperties.RingLocation,
-            new XRect(new XPoint(bounds.X + (bounds.Width - bounds.Height) / 2, bounds.Y),
-                new XSize(bounds.Height - 3 * scaleFactor, bounds.Height - 3 * scaleFactor)));
+            new XRect(new XPoint(bounds.X + ((bounds.Width - bounds.Height) / 2), bounds.Y),
+                new XSize(bounds.Height - (3 * scaleFactor), bounds.Height - (3 * scaleFactor))));
     }
 
     protected override void CreateAndroidLayoutParameters(XGraphics page, ActivityIndicator view, XRect bounds,
@@ -42,8 +40,8 @@ public class PdfActivityIndicatorRenderer : PdfRendererBase<ActivityIndicator>
         Properties.Add(ActivityIndicatorProperties.RingAngle, 270);
         Properties.Add(ActivityIndicatorProperties.RingThickness, 5 * scaleFactor);
         Properties.Add(ActivityIndicatorProperties.RingLocation,
-            new XRect(new XPoint(bounds.X + (bounds.Width - bounds.Height) / 2, bounds.Y),
-                new XSize(bounds.Height - 3 * scaleFactor, bounds.Height - 3 * scaleFactor)));
+            new XRect(new XPoint(bounds.X + ((bounds.Width - bounds.Height) / 2), bounds.Y),
+                new XSize(bounds.Height - (3 * scaleFactor), bounds.Height - (3 * scaleFactor))));
     }
 
     protected override void CreateIosLayoutParameters(XGraphics page, ActivityIndicator view, XRect bounds,
@@ -54,8 +52,8 @@ public class PdfActivityIndicatorRenderer : PdfRendererBase<ActivityIndicator>
         Properties.Add(ActivityIndicatorProperties.RingAngle, 240);
         Properties.Add(ActivityIndicatorProperties.RingThickness, 5 * scaleFactor);
         Properties.Add(ActivityIndicatorProperties.RingLocation,
-            new XRect(new XPoint(bounds.X + (bounds.Width - bounds.Height) / 2, bounds.Y),
-                new XSize(bounds.Height - 3 * scaleFactor, bounds.Height - 3 * scaleFactor)));
+            new XRect(new XPoint(bounds.X + ((bounds.Width - bounds.Height) / 2), bounds.Y),
+                new XSize(bounds.Height - (3 * scaleFactor), bounds.Height - (3 * scaleFactor))));
     }
 
     protected override void CreateWindowsLayoutParameters(XGraphics page, ActivityIndicator view, XRect bounds,
@@ -66,8 +64,8 @@ public class PdfActivityIndicatorRenderer : PdfRendererBase<ActivityIndicator>
         Properties.Add(ActivityIndicatorProperties.RingAngle, 240);
         Properties.Add(ActivityIndicatorProperties.RingThickness, 4 * scaleFactor);
         Properties.Add(ActivityIndicatorProperties.RingLocation,
-            new XRect(new XPoint(bounds.X + (bounds.Width - bounds.Height) / 2, bounds.Y),
-                new XSize(bounds.Height - 3 * scaleFactor, bounds.Height - 3 * scaleFactor)));
+            new XRect(new XPoint(bounds.X + ((bounds.Width - bounds.Height) / 2), bounds.Y),
+                new XSize(bounds.Height - (3 * scaleFactor), bounds.Height - (3 * scaleFactor))));
     }
 
     private static class ActivityIndicatorProperties

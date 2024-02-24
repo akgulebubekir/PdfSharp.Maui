@@ -1,8 +1,8 @@
-﻿namespace PdfSharp.Maui.Renderers;
+namespace PdfSharp.Maui.Renderers;
 
 public abstract class PdfRendererBase<T> : PdfRendererBase where T : View
 {
-    protected readonly Dictionary<string, object> Properties = new();
+    protected readonly Dictionary<string, object> Properties = [];
 
     internal override void CreateLayout(XGraphics page, object view, XRect bounds, PdfStyle style, double scaleFactor)
     {

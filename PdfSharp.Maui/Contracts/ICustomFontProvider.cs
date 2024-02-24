@@ -1,4 +1,4 @@
-﻿namespace PdfSharp.Maui.Contracts;
+namespace PdfSharp.Maui.Contracts;
 
 /// <summary>
 /// Font provider interface for custom PDF fonts

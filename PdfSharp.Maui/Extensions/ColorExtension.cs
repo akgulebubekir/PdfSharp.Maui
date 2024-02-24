@@ -1,4 +1,4 @@
-﻿namespace PdfSharp.Maui.Extensions;
+namespace PdfSharp.Maui.Extensions;
 
 public static class ColorExtension
 {

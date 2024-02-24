@@ -1,5 +1,3 @@
-﻿using PdfSharp.Maui.Attributes;
-
 namespace PdfSharp.Maui.Renderers.Controls;
 
 [PdfRenderer(ViewType = typeof(ProgressBar))]
@@ -17,10 +15,10 @@ public class PdfProgressBarRenderer : PdfRendererBase<ProgressBar>
         }
 
         page.DrawRectangle(GetProperty<XBrush>(ProgressBarProperties.EmptyLineColor),
-            new XRect(new XPoint(bounds.X, bounds.Y + (bounds.Height - emptyLineThickness) / 2),
+            new XRect(new XPoint(bounds.X, bounds.Y + ((bounds.Height - emptyLineThickness) / 2)),
                 new XSize(bounds.Width, emptyLineThickness)));
         page.DrawRoundedRectangle(GetProperty<XBrush>(ProgressBarProperties.ProgressLineColor),
-            new XRect(new XPoint(bounds.X, bounds.Y + (bounds.Height - progressLineThickness) / 2),
+            new XRect(new XPoint(bounds.X, bounds.Y + ((bounds.Height - progressLineThickness) / 2)),
                 new XSize(bounds.Width * view.Progress, progressLineThickness)), new XSize(cornerRadius, cornerRadius));
     }
 

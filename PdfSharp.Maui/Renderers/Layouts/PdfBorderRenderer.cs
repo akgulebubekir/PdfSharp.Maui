@@ -1,5 +1,3 @@
-﻿using PdfSharp.Maui.Attributes;
-
 namespace PdfSharp.Maui.Renderers.Layouts;
 
 [PdfRenderer(ViewType = typeof(Border))]
@@ -39,7 +37,7 @@ public class PdfBorderRenderer : PdfRendererBase<Border>
         var xRatio = point.X == 0 ? 0 : (point.X - bound.X) / bound.Width;
         var yRatio = point.Y == 0 ? 0 : (point.Y - bound.Y) / bound.Height;
 
-        return new XPoint(transformBounds.X + transformBounds.Width * xRatio,
-            transformBounds.Y + transformBounds.Height * yRatio);
+        return new XPoint(transformBounds.X + (transformBounds.Width * xRatio),
+            transformBounds.Y + (transformBounds.Height * yRatio));
     }
 }

@@ -1,5 +1,3 @@
-﻿using PdfSharp.Maui.Attributes;
-
 namespace PdfSharp.Maui.Renderers.Editors;
 
 [PdfRenderer(ViewType = typeof(CheckBox))]
@@ -9,14 +7,14 @@ public class PdfCheckBoxRenderer : PdfRendererBase<CheckBox>
     {
         var checkPath = new[]
         {
-            new XPoint(bounds.X + bounds.Width * 0.2, bounds.Center.Y + bounds.Height * 0.1),
-            new XPoint(bounds.Center.X - bounds.Width * 0.1, bounds.Center.Y + bounds.Height * 0.25),
-            new XPoint(bounds.X + bounds.Width * 0.75, bounds.Y + bounds.Height * 0.25)
+            new XPoint(bounds.X + (bounds.Width * 0.2), bounds.Center.Y + (bounds.Height * 0.1)),
+            new XPoint(bounds.Center.X - (bounds.Width * 0.1), bounds.Center.Y + (bounds.Height * 0.25)),
+            new XPoint(bounds.X + (bounds.Width * 0.75), bounds.Y + (bounds.Height * 0.25))
         };
 
         if (GetProperty<CheckboxShape>(CheckBoxProperties.Shape) == CheckboxShape.Circle)
         {
-            var circleBounds = new XRect(bounds.X + bounds.Height * 0.1, bounds.Y + bounds.Height * 0.1,
+            var circleBounds = new XRect(bounds.X + (bounds.Height * 0.1), bounds.Y + (bounds.Height * 0.1),
                 bounds.Height * 0.8, bounds.Height * 0.8);
             page.DrawEllipse(GetProperty<XBrush>(ViewProperties.BackgroundColor), circleBounds);
             page.DrawEllipse(

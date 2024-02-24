@@ -1,7 +1,7 @@
-﻿using PdfSharp.Maui.Renderers;
-using PdfSharp.Pdf;
-
 namespace PdfSharp.Maui;
+
+using PdfSharp.Maui.Renderers;
+using PdfSharp.Pdf;
 
 internal class PdfGenerator
 {
@@ -61,7 +61,7 @@ internal class PdfGenerator
         var document = new PdfDocument();
         viewInfos = viewInfos.OrderBy(x => x.Offset.Y).ToList();
         var pageIndex = 1;
-        while (viewInfos.Any())
+        while (viewInfos.Count != 0)
         {
             var page = document.AddPage();
             page.Orientation = _orientation;
@@ -73,18 +73,18 @@ internal class PdfGenerator
                     new XRect(new XPoint(0, 0), SizeUtils.GetPageSize(_pageSize, _orientation)));
             }
 
-            var adjustedYOffset = (pageIndex-1)*_availablePageSize.Height- viewInfos.First().Offset.Y;
+            var adjustedYOffset = (pageIndex - 1) * _availablePageSize.Height - viewInfos.First().Offset.Y;
             foreach (var viewInfo in viewInfos.Where(x =>
                              x.Offset.Y + x.Bounds.Bottom * _scaleFactor < pageIndex * _availablePageSize.Height)
                          .ToList())
             {
-                    DrawView(viewInfo, pageIndex, adjustedYOffset, graphics);
+                DrawView(viewInfo, pageIndex, adjustedYOffset, graphics);
                 viewInfos.Remove(viewInfo);
             }
 
             pageIndex++;
         }
-        
+
         return document;
     }
 
@@ -108,7 +108,7 @@ internal class PdfGenerator
                 {
                     var renderer = (PdfRendererBase)Activator.CreateInstance(rList.Value);
                     var desiredBounds = new XRect(viewInfo.Offset.X + _availablePageSize.X,
-                        viewInfo.Offset.Y + adjustedYOffset + _availablePageSize.Y - (pageNumber-1) * _availablePageSize.Height,
+                        viewInfo.Offset.Y + adjustedYOffset + _availablePageSize.Y - (pageNumber - 1) * _availablePageSize.Height,
                         viewInfo.Bounds.Width,
                         viewInfo.Bounds.Height);
 
@@ -147,7 +147,7 @@ internal class PdfGenerator
                 break;
         }
     }
-private void DrawCollectionView(int pageNumber, double adjustedYOffset, XGraphics gfx, CollectionViewInfo<CollectionView> cvInfo)
+    private void DrawCollectionView(int pageNumber, double adjustedYOffset, XGraphics gfx, CollectionViewInfo<CollectionView> cvInfo)
     {
         var desiredBounds = new XRect(cvInfo.Offset.X + _availablePageSize.X,
             cvInfo.Offset.Y + adjustedYOffset + _availablePageSize.Y - (pageNumber - 1) * _availablePageSize.Height,

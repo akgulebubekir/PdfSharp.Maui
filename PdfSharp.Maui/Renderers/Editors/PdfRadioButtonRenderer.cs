@@ -1,5 +1,3 @@
-﻿using PdfSharp.Maui.Attributes;
-
 namespace PdfSharp.Maui.Renderers.Editors;
 
 [PdfRenderer(ViewType = typeof(RadioButton))]
@@ -36,13 +34,13 @@ public class PdfRadioButtonRenderer : PdfRendererBase<RadioButton>
         page.DrawEllipse(
             new XPen(GetProperty<XColor>(RadioButtonProperties.OuterCircleColor),
                 GetProperty<double>(RadioButtonProperties.OuterCircleThickness)),
-            bounds.X + 4 * scaleFactor, bounds.Center.Y - outerRadius, 2 * outerRadius, 2 * outerRadius);
+            bounds.X + (4 * scaleFactor), bounds.Center.Y - outerRadius, 2 * outerRadius, 2 * outerRadius);
 
         if (HasProperty(RadioButtonProperties.InnerCircleColor))
         {
             var innerRadius = GetProperty<double>(RadioButtonProperties.InnerCircleRadius);
             page.DrawEllipse(new XSolidBrush(GetProperty<XColor>(RadioButtonProperties.InnerCircleColor)),
-                bounds.X + 4 * scaleFactor + outerRadius - innerRadius, bounds.Center.Y - innerRadius, 2 * innerRadius,
+                bounds.X + (4 * scaleFactor) + outerRadius - innerRadius, bounds.Center.Y - innerRadius, 2 * innerRadius,
                 2 * innerRadius);
         }
 
@@ -50,7 +48,7 @@ public class PdfRadioButtonRenderer : PdfRendererBase<RadioButton>
         {
             page.DrawString(text, font, GetProperty<XBrush>(ViewProperties.TextColor),
                 new XRect(new XPoint(bounds.X + bounds.Height, bounds.Y),
-                    new XSize(bounds.Width - 1.5 * bounds.Height, bounds.Height)), DefaultTextFormat);
+                    new XSize(bounds.Width - (1.5 * bounds.Height), bounds.Height)), DefaultTextFormat);
         }
     }
 

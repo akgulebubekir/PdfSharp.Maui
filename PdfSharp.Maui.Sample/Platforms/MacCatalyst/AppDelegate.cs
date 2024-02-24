@@ -1,6 +1,6 @@
-﻿using Foundation;
-
 namespace PdfSharp.Maui.Sample;
+
+using Foundation;
 
 [Register("AppDelegate")]
 public class AppDelegate : MauiUIApplicationDelegate

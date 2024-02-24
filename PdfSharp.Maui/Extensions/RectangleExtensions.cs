@@ -1,6 +1,6 @@
-﻿using Microsoft.Maui.Controls.Shapes;
-
 namespace PdfSharp.Maui.Extensions;
+
+using Microsoft.Maui.Controls.Shapes;
 
 public static class RectangleExtensions
 {

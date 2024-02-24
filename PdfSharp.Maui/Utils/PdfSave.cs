@@ -1,6 +1,6 @@
-﻿using PdfSharp.Pdf;
-
 namespace PdfSharp.Maui.Utils;
+
+using PdfSharp.Pdf;
 
 public static class PdfSave
 {

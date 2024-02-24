@@ -1,7 +1,6 @@
-﻿using System.Globalization;
-using PdfSharp.Maui.Attributes;
-
 namespace PdfSharp.Maui.Renderers.Editors;
+
+using System.Globalization;
 
 [PdfRenderer(ViewType = typeof(DatePicker))]
 public class PdfDatePickerRenderer : PdfRendererBase<DatePicker>

@@ -1,5 +1,3 @@
-﻿using PdfSharp.Maui.Attributes;
-
 namespace PdfSharp.Maui.Renderers.Layouts;
 
 [PdfRenderer(ViewType = typeof(ContentView))]

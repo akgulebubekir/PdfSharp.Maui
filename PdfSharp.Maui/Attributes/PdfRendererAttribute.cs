@@ -1,4 +1,4 @@
-﻿namespace PdfSharp.Maui.Attributes;
+namespace PdfSharp.Maui.Attributes;
 
 /// <summary>
 /// Attribute to fetch PdfRenderers.

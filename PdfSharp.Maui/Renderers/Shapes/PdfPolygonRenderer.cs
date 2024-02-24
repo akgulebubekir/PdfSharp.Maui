@@ -1,7 +1,6 @@
-﻿using Microsoft.Maui.Controls.Shapes;
-using PdfSharp.Maui.Attributes;
-
 namespace PdfSharp.Maui.Renderers.Shapes;
+
+using Microsoft.Maui.Controls.Shapes;
 
 [PdfRenderer(ViewType = typeof(Polygon))]
 public class PdfPolygonRenderer : PdfShapeRendererBase<Polygon>

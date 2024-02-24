@@ -1,7 +1,6 @@
-﻿using PdfSharp.Maui.Attributes;
-using Path = Microsoft.Maui.Controls.Shapes.Path;
-
 namespace PdfSharp.Maui.Renderers.Shapes;
+
+using Path = Microsoft.Maui.Controls.Shapes.Path;
 
 [PdfRenderer(ViewType = typeof(Path))]
 public class PdfPathRenderer : PdfShapeRendererBase<Path>
