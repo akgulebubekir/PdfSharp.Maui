@@ -21,18 +21,10 @@ public class PdfImageButtonRenderer : PdfRendererBase<ImageButton>
                 new XSize(cornerRadius, cornerRadius));
         }
 
-
-        var img = view.Source switch
-        {
-            FileImageSource f => XImage.FromStream(FileSystem.OpenAppPackageFileAsync(f.File).Result),
-            UriImageSource u => XImage.FromFile(u.Uri.AbsolutePath),
-            StreamImageSource s => XImage.FromStream(s.Stream.Invoke(new CancellationToken()).Result),
-            _ => throw new ArgumentException("Image.Source")
-        };
-
+        var xImage = view.Source.ToXImage();
 
         var desiredBounds = bounds;
-        var imageAspectRatio = (double)img.PixelWidth / img.PixelHeight;
+        var imageAspectRatio = xImage.Size.Width / xImage.Size.Height;
         var boundsAspectRatio = bounds.Width / bounds.Height;
         if (boundsAspectRatio > imageAspectRatio)
         {
@@ -45,7 +37,7 @@ public class PdfImageButtonRenderer : PdfRendererBase<ImageButton>
 
         var centeredBounds = new XRect(bounds.X + ((bounds.Width - desiredBounds.Width) / 2),
             bounds.Y + ((bounds.Height - desiredBounds.Height) / 2), desiredBounds.Width, desiredBounds.Height);
-        page.DrawImage(img, centeredBounds);
+        page.DrawImage(xImage, centeredBounds);
     }
 
     protected override void CreateUniformLayoutParameters(XGraphics page, ImageButton view, XRect bounds,

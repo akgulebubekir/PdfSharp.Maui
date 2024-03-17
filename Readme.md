@@ -2,7 +2,7 @@ PdfSharp.Maui
 ======================
 
 **PdfSharp.Maui** is a Microsoft.Maui library for **converting any Maui.View into PDF**.
-It uses[PdfSharp](https://github.com/empira/PDFsharp) ).
+It uses[PdfSharp](https://github.com/empira/PDFsharp).
 
 
 [![NuGet](https://img.shields.io/badge/nuget-v1.0.3-blue.svg?style=plastic)](https://www.nuget.org/packages/PdfSharp.Maui)
@@ -21,7 +21,7 @@ By following ([Demo](https://github.com/akgulebubekir/PDFSharp.Maui/tree/master/
 ### Features
 > - Universal style and Platform Specific(WYSIWYG) Pdf rendering
 > - Custom Fonts (You should provide Font while creating `PdfManager`)
-> - Image rendering (`FileImageSource`'s must be copied under `Resources/Raw` folder ). It also supports `png` images.
+> - Image rendering. (It also supports `png` images)
 > - Custom renderer (Write your own renderer for your own custom view) 
 > - Paper size & orientation support
 > - Do not render option : by using `pdf:PdfRendererAttributes.ShouldRender="False"` you can ignore the view from rendering
@@ -29,7 +29,7 @@ By following ([Demo](https://github.com/akgulebubekir/PDFSharp.Maui/tree/master/
 
 ### Limitations
 > - It does not support `RadialGradientBrush` yet.
-
+> - `png` images will be convreted into `jpeg` in android.
 
 ### ListView & CollectionView Rendering
 > Due to template style of these view library only renders as basic listview. Therefore you should implement your own delegate classes derived from `PdfListViewRendererDelegate` or `PdfCollectionViewRendererDelegate`.  You will find the sample list view delegate at `PdfSharp.Maui.Sample/CustomListViewRendererDelegate.cs`

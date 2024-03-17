@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFrameworks>net8.0-maccatalyst;net8.0-ios;net8.0-android</TargetFrameworks>
@@ -51,8 +51,6 @@
 	<ItemGroup>
 	  <None Remove="Resources\Images\cat.jpg" />
 	  <None Remove="Resources\Images\world.png" />
-	  <None Remove="Resources\Raw\cat.jpg" />
-	  <None Remove="Resources\Raw\world.png" />
 	</ItemGroup>
 
 	<ItemGroup>
