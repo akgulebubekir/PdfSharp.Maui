@@ -29,7 +29,7 @@ By following ([Demo](https://github.com/akgulebubekir/PDFSharp.Maui/tree/master/
 
 ### Limitations
 > - It does not support `RadialGradientBrush` yet.
-> - `png` images will be convreted into `jpeg` in android.
+> - `png` images will be converted into `jpeg` in android.
 
 ### ListView & CollectionView Rendering
 > Due to template style of these view library only renders as basic listview. Therefore you should implement your own delegate classes derived from `PdfListViewRendererDelegate` or `PdfCollectionViewRendererDelegate`.  You will find the sample list view delegate at `PdfSharp.Maui.Sample/CustomListViewRendererDelegate.cs`
