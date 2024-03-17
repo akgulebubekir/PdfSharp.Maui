@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFrameworks>net8.0;net8.0-maccatalyst;net8.0-ios;net8.0-android</TargetFrameworks>
@@ -23,7 +23,7 @@
 		<PackageReadmeFile>Readme.md</PackageReadmeFile>
 		<RepositoryUrl>https://github.com/akgulebubekir/PDFSharp.Maui</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
-		<Version>1.0.3</Version>
+		<Version>1.0.4</Version>
 		<PackageTags>PDF, .net, maui, pdfsharp</PackageTags>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
