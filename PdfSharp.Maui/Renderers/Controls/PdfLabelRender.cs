@@ -15,7 +15,7 @@ public class PdfLabelRenderer : PdfRendererBase<Label>
 
         if (!string.IsNullOrEmpty(view.Text))
         {
-            page.DrawString(view.Text, font, GetProperty<XBrush>(ViewProperties.TextColor), bounds,
+            page.DrawFormattedString(view.TransformedText(), font, GetProperty<XBrush>(ViewProperties.TextColor), bounds,
                 view.HorizontalTextAlignment.ToXStringFormat());
         }
     }

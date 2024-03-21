@@ -33,7 +33,7 @@ public class PdfSearchBarRenderer : PdfRendererBase<SearchBar>
 
         if (!string.IsNullOrEmpty(view.Text))
         {
-            page.DrawString(view.Text, font, GetProperty<XBrush>(ViewProperties.TextColor),
+            page.DrawFormattedString(view.TransformedText(), font, GetProperty<XBrush>(ViewProperties.TextColor),
                 GetProperty<XRect>(ViewProperties.TextLocation), new XStringFormat
                 {
                     Alignment = XStringAlignment.Near,
@@ -42,7 +42,7 @@ public class PdfSearchBarRenderer : PdfRendererBase<SearchBar>
         }
         else if (!string.IsNullOrEmpty(view.Placeholder))
         {
-            page.DrawString(view.Placeholder, font, GetProperty<XBrush>(ViewProperties.PlaceholderColor),
+            page.DrawFormattedString(view.Placeholder, font, GetProperty<XBrush>(ViewProperties.PlaceholderColor),
                 GetProperty<XRect>(ViewProperties.TextLocation), new XStringFormat
                 {
                     Alignment = XStringAlignment.Near,

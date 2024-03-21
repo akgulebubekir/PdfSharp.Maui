@@ -26,13 +26,13 @@ public class PdfEntryRenderer : PdfRendererBase<Entry>
 
         if (!string.IsNullOrEmpty(view.Text))
         {
-            page.DrawString(view.Text, font, GetProperty<XBrush>(ViewProperties.TextColor),
+            page.DrawFormattedString(view.TransformedText(), font, GetProperty<XBrush>(ViewProperties.TextColor),
                 bounds.WithMargin(5 * scaleFactor),
                 view.HorizontalTextAlignment.ToXStringFormat());
         }
         else if (!string.IsNullOrEmpty(view.Placeholder))
         {
-            page.DrawString(view.Placeholder, font, GetProperty<XBrush>(ViewProperties.PlaceholderColor),
+            page.DrawFormattedString(view.Placeholder, font, GetProperty<XBrush>(ViewProperties.PlaceholderColor),
                 bounds.WithMargin(5 * scaleFactor),
                 view.HorizontalTextAlignment.ToXStringFormat());
         }

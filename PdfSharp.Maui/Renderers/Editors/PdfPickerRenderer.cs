@@ -24,7 +24,7 @@ public class PdfPickerRenderer : PdfRendererBase<Picker>
         if (view.SelectedItem != null)
         {
             var font = new XFont(GlobalFontSettings.DefaultFontName, 14 * scaleFactor);
-            page.DrawString(view.SelectedItem.ToString(), font, GetProperty<XBrush>(ViewProperties.TextColor), bounds,
+            page.DrawFormattedString(view.SelectedItem.ToString(), font, GetProperty<XBrush>(ViewProperties.TextColor), bounds,
                 new XStringFormat
                 {
                     Alignment = XStringAlignment.Center,

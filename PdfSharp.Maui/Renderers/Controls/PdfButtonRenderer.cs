@@ -25,7 +25,7 @@ public class PdfButtonRenderer : PdfRendererBase<Button>
 
         if (!string.IsNullOrEmpty(view.Text))
         {
-            page.DrawString(view.Text, font, GetProperty<XBrush>(ViewProperties.TextColor), bounds,
+            page.DrawFormattedString(view.TransformedText(), font, GetProperty<XBrush>(ViewProperties.TextColor), bounds,
                 XStringFormats.Center);
         }
     }

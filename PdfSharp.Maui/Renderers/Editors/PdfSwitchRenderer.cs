@@ -36,7 +36,7 @@ public class PdfSwitchRenderer : PdfRendererBase<Switch>
             var textLocation = new XRect(new XPoint(baseLocation.Right + (4 * scaleFactor), bounds.Y),
                 new XSize(bounds.Width - baseLocation.Width, bounds.Height));
 
-            page.DrawString(text, font, GetProperty<XBrush>(ViewProperties.TextColor), textLocation,
+            page.DrawFormattedString(text, font, GetProperty<XBrush>(ViewProperties.TextColor), textLocation,
                 XStringFormats.CenterLeft);
         }
     }

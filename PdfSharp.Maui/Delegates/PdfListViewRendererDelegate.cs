@@ -140,7 +140,7 @@ public class PdfListViewRendererDelegate : ICollectionViewRendererDelegate<ListV
 
             var font = new XFont(GlobalFontSettings.DefaultFontName, 14 * scaleFactor);
             var textColor = Application.Current?.RequestedTheme == AppTheme.Dark ? XBrushes.White : XBrushes.Black;
-            page.DrawString(headerText, font, textColor, bounds,
+            page.DrawFormattedString(headerText, font, textColor, bounds,
                 XStringFormats.CenterLeft);
         }
     }
@@ -173,7 +173,7 @@ public class PdfListViewRendererDelegate : ICollectionViewRendererDelegate<ListV
         {
             var font = new XFont(GlobalFontSettings.DefaultFontName, 14 * scaleFactor);
             var textColor = Application.Current?.RequestedTheme == AppTheme.Dark ? XBrushes.White : XBrushes.Black;
-            page.DrawString(bindingContext.ToString(), font, textColor, bounds,
+            page.DrawFormattedString(bindingContext.ToString(), font, textColor, bounds,
                 XStringFormats.CenterLeft);
         }
     }

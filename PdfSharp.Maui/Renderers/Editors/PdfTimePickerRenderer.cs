@@ -22,7 +22,7 @@ internal class PdfTimePickerRenderer : PdfRendererBase<TimePicker>
                 new XSize(cornerRadius, cornerRadius));
         }
 
-        page.DrawString(GetProperty<string>(TimePickerProperties.TimeText), font,
+        page.DrawFormattedString(GetProperty<string>(TimePickerProperties.TimeText), font,
             GetProperty<XBrush>(ViewProperties.TextColor), bounds, XStringFormats.Center);
     }
 

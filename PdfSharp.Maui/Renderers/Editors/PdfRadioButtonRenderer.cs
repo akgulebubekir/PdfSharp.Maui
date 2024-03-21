@@ -46,7 +46,7 @@ public class PdfRadioButtonRenderer : PdfRendererBase<RadioButton>
 
         if (view.Content is string text)
         {
-            page.DrawString(text, font, GetProperty<XBrush>(ViewProperties.TextColor),
+            page.DrawFormattedString(text, font, GetProperty<XBrush>(ViewProperties.TextColor),
                 new XRect(new XPoint(bounds.X + bounds.Height, bounds.Y),
                     new XSize(bounds.Width - (1.5 * bounds.Height), bounds.Height)), DefaultTextFormat);
         }

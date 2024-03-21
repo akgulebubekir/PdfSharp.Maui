@@ -18,9 +18,9 @@ internal class CustomListViewRendererDelegate : Delegates.PdfListViewRendererDel
         var itemSource = view.ItemsSource as IEnumerable<IGrouping<string, City>>;
         var item = itemSource.ElementAt(section).ElementAt(row);
 
-        page.DrawString(item.Name, boldFont, _defaultTextColor,
+        page.DrawFormattedString(item.Name, boldFont, _defaultTextColor,
             bounds.WithMargin(new Thickness(bounds.Width * 0.05, 0, 0, bounds.Height / 2)), XStringFormats.CenterLeft);
-        page.DrawString(item.Country, italicFont, _defaultTextColor,
+        page.DrawFormattedString(item.Country, italicFont, _defaultTextColor,
             bounds.WithMargin(new Thickness(bounds.Width * 0.05, bounds.Height / 2, 0, 0)), XStringFormats.CenterLeft);
     }
 
@@ -38,6 +38,6 @@ internal class CustomListViewRendererDelegate : Delegates.PdfListViewRendererDel
     {
         var font = new XFont(GlobalFontSettings.DefaultFontName, 14 * scaleFactor, XFontStyleEx.Bold);
         var itemSource = view.ItemsSource as IEnumerable<IGrouping<string, City>>;
-        page.DrawString(itemSource.ElementAt(section).Key, font, _defaultTextColor, bounds, XStringFormats.CenterLeft);
+        page.DrawFormattedString(itemSource.ElementAt(section).Key, font, _defaultTextColor, bounds, XStringFormats.CenterLeft);
     }
 }

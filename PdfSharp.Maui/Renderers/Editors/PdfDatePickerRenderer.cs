@@ -26,7 +26,7 @@ public class PdfDatePickerRenderer : PdfRendererBase<DatePicker>
         page.DrawRoundedRectangle(new XPen(GetProperty<XColor>(ViewProperties.BorderColor), scaleFactor), bounds,
             new XSize(cornerRadius, cornerRadius));
 
-        page.DrawString(view.Date.ToString(format, CultureInfo.InvariantCulture), font,
+        page.DrawFormattedString(view.Date.ToString(format, CultureInfo.InvariantCulture), font,
             GetProperty<XBrush>(ViewProperties.TextColor), bounds,
             new XStringFormat
             {
