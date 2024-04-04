@@ -6,6 +6,7 @@ It uses[PdfSharp](https://github.com/empira/PDFsharp).
 
 
 [![NuGet](https://img.shields.io/badge/nuget-v1.0.5-blue.svg?style=plastic)](https://www.nuget.org/packages/PdfSharp.Maui)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fakgulebubekir%2FPdfSharp.Maui.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fakgulebubekir%2FPdfSharp.Maui?ref=badge_shield)
 
 
 ### Demo
@@ -52,3 +53,7 @@ By following ([Demo](https://github.com/akgulebubekir/PDFSharp.Maui/tree/master/
 		}
 	}
 ```
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fakgulebubekir%2FPdfSharp.Maui.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fakgulebubekir%2FPdfSharp.Maui?ref=badge_large)
